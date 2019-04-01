@@ -53,9 +53,9 @@ def find_sub_anagrams(word, word_list):
 
 def generate_output(words):
     r"""Generate the output.
-
-    For each word a line is printed containing all the sub-anagrams of that
-    word in sorted order, separated by spaces.
+    
+    For each word the output contains a line with all the sub-anagrams of that 
+    word (in sorted order) separated by spaces
     Example: generate-output(["tea", "ok"]) ->
              "A At E T Ta a at ate e eat eta t tea\nK O OK k o"
     """

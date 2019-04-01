@@ -25,10 +25,10 @@
   ;; Code goes here)  
 
 (defn generate-output 
-  "Generate the output by finding all sub-anagrams in the dictionary for each 
-   word in words.  
-   For each word a line is printed containing all the sub-anagrams of that word
-   in sorted order, separated by spaces.
+  "Generate the output.
+
+   For each word the output contains a line with all the sub-anagrams of that 
+   word (in sorted order) separated by spaces.
    Example: (generate-output [\"tea\", \"ok\"]) -> 
             \"A At E T Ta a at ate e eat eta t tea\nK O OK k o\"
   "
