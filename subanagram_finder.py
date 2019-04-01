@@ -1,10 +1,10 @@
 """Python Sub-anagram Finder.
 
 Usage:
-    subanagram_finder.py [-h] word [word ...]
+    python subanagram_finder.py [-h] word [word ...]
 
 Run:
-    subanagram_finder.py -h
+    python subanagram_finder.py -h
 for more details.
 
 Prof. Josh Auerbach
@@ -51,13 +51,22 @@ def find_sub_anagrams(word, word_list):
     return list(filter(is_sub_anagram, word_list))
 
 
+def generate_output(words):
+    r"""Generate the output.
+
+    For each word a line is printed containing all the sub-anagrams of that
+    word in sorted order, separated by spaces.
+    Example: generate-output(["tea", "ok"]) ->
+             "A At E T Ta a at ate e eat eta t tea\nK O OK k o"
+    """
+    dictionary = load_dictionary()
+    all_anagrams = map(lambda word: find_sub_anagrams(word, dictionary), words)
+    return '\n'.join(map(lambda anagrams: ' '.join(anagrams), all_anagrams))
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Sub-anagram Finder')
     parser.add_argument('words', metavar='word', nargs='+',
                         help='word to search for anagrams of')
     args = parser.parse_args()
-    words = args.words
-
-    dictionary = load_dictionary()
-    all_anagrams = map(lambda word: find_sub_anagrams(word, dictionary), words)
-    print('\n'.join(map(lambda anagrams: ' '.join(anagrams), all_anagrams)))
+    print(generate_output(args.words))
