@@ -11,8 +11,10 @@
 
 (defn load-dictionary 
   "Load list of words from disk."
-  ;; Code goes here
-  )
+  ([] (load-dictionary "resources/words"))
+  ([file-name]
+   ;; Code goes here
+  ))
   
 
 (defn find-sub-anagrams 
