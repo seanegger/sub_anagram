@@ -14,6 +14,8 @@
   ([] (load-dictionary "resources/words"))
   ([file-name]
    ;; Code goes here
+   (with-open [r (reader file-name)]
+     (count (line-seq r)))
   ))
   
 
