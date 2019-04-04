@@ -14,9 +14,12 @@
   ([] (load-dictionary "resources/words"))
   ([file-name]
    ;; Code goes here
-   (with-open [r (reader file-name)]
-     (count (line-seq r)))
-   ;; count is lazy - doall is non-lazy - (doall (line-seq r)))
+   ;; get text file
+   (with-open [reader (clojure.java.io/reader file-name)]
+   ;; add each line to the vector
+   (def wordsVector (reduce conj [] (line-seq reader))))
+   ;; change the vector to a list
+   (into () wordsVector)
   ))
   
 
