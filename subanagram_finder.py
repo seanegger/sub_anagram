@@ -44,9 +44,7 @@ def find_sub_anagrams(word, word_list):
 
         # for every letter in other_word, make sure
         # it appears in word at least as many times as in other_word
-        return all(map(
-            lambda letter: letter_counts.get(letter, 0) >=
-            other_letter_counts[letter], other_letter_counts.keys()))
+        return all(map(lambda letter: letter_counts.get(letter, 0) >= other_letter_counts[letter], other_letter_counts.keys()))
 
     return list(filter(is_sub_anagram, word_list))
 
