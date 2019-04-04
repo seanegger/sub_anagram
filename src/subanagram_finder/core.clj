@@ -43,9 +43,12 @@
   "
   [words]
   ;; Code goes here
-  ;; load dictionary - dictionary = (load-dictionary)
-  ;; get anagrams - all-anagrams = (find-sub-anagrams words dictionary)
-  ;; return anagrams - return all-anagrams
+  ;; load dictionary - 
+  dictionary = (load-dictionary)
+  ;; get anagrams - 
+  all-anagrams = (find-sub-anagrams words dictionary)
+  ;; return anagrams -
+  (join "\n" (join " " all-anagrams))
   )
   
 
