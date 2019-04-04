@@ -22,6 +22,22 @@
 
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
+  (def len (count word))
+  (def freq (frequencies word))
+
+  (defn is-sub-anagram [other]
+   (cond
+    (< len (count other))
+        false
+    (>= len (count other))
+        (
+        (def other_ct (frequencies other))
+        other_ct
+        )
+   )
+  )
+
+  (println (is-sub-anagram "animal", ))
   ;; Code goes here
   )  
 
@@ -37,24 +53,8 @@
   "
   [words]
   ;; Code goes here
-  (def len (count words))
-  (println len)
-  (def freq (frequencies words))
-
-  (defn is-sub-anagram [word]
-   (cond
-    (< len (count word))
-        false
-    (>= len (count word))
-        (
-        (def other_ct (frequencies word))
-        other_ct
-        )
-   )
-  )
-
-  (println (is-sub-anagram "ea"))
-
+  
+  (find-sub-anagrams "app" words)
   )
 
 
