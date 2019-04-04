@@ -26,7 +26,8 @@
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
   ;; Code goes here
-  ;; get length of word - word-length = count word
+  ;; get length of word - 
+  word-length = (count word)
   ;; letter-counts
   ;; is-sub-anagram
   ;; return is-sub-anagram
