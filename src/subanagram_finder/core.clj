@@ -28,6 +28,7 @@
   ;; Code goes here
   ;; get length of word - 
   (def word-length (count word))
+  (def letter-counts (frequencies(lower-case word)))
   ;; letter-counts
   ;; is-sub-anagram
   ;; return is-sub-anagram
