@@ -22,7 +22,8 @@
 
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
-  ;; Code goes here)  
+  ;; Code goes here
+  )  
 
 (defn generate-output 
   "Generate the output.
@@ -33,7 +34,8 @@
             \"A At E T Ta a at ate e eat eta t tea\nK O OK k o\"
   "
   [words]
-  ;; Code goes here)
+  ;; Code goes here
+  )
   
 
 (defn -main 
