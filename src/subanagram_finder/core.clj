@@ -25,6 +25,8 @@
   ;; Code goes here
   )  
 
+
+
 (defn generate-output 
   "Generate the output.
 
@@ -35,8 +37,27 @@
   "
   [words]
   ;; Code goes here
+  (def len (count words))
+  (println len)
+  (def freq (frequencies words))
+
+  (defn is-sub-anagram [word]
+   (cond
+    (< len (count word))
+        false
+    (>= len (count word))
+        (
+        (def other_ct (frequencies word))
+        other_ct
+        )
+   )
   )
-  
+
+  (println (is-sub-anagram "ea"))
+
+  )
+
+
 
 (defn -main 
   "Main function, generates the output and prints it to the console."
