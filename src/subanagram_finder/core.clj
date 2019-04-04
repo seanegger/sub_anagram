@@ -46,7 +46,7 @@
   ;; load dictionary - 
   (def dictionary (load-dictionary))
   ;; get anagrams - 
-  (def all-anagrams (find-sub-anagrams words dictionary)
+  (def all-anagrams (find-sub-anagrams words dictionary))
   ;; return anagrams -
   (join "\n" (join " " all-anagrams))
   )
