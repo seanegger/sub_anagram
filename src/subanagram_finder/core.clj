@@ -14,6 +14,9 @@
   ([] (load-dictionary "resources/words"))
   ([file-name]
    ;; Code goes here
+   (with-open [r (clojure.java.io/reader file-name)]
+     (doall (line-seq r)))
+   ;; count is lazy - doall is non-lazy - (doall (line-seq r)))
   ))
   
 
@@ -23,7 +26,8 @@
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
   (def len (count word))
-  (def freq (frequencies word))
+  (def freq (frequencies (clojure.string/lower-case word)))
+  (println freq)
 
   (defn is-sub-anagram [other]
    (cond
@@ -31,30 +35,36 @@
         false
     (>= len (count other))
         (
-        (def other_ct (frequencies other))
+        (def other_ct (frequencies (clojure.string/lower-case other)))
         other_ct
         )
    )
   )
 
   (println (is-sub-anagram "animal", ))
+  "bear"
   ;; Code goes here
   )  
 
 
 
-(defn generate-output 
-  "Generate the output.
-
-   For each word the output contains a line with all the sub-anagrams of that 
-   word (in sorted order) separated by spaces.
-   Example: (generate-output [\"tea\", \"ok\"]) -> 
-            \"A At E T Ta a at ate e eat eta t tea\nK O OK k o\"
-  "
-  [words]
-  ;; Code goes here
-  
-  )
+  (defn generate-output 
+    "Generate the output.
+     For each word the output contains a line with all the sub-anagrams of that 
+     word (in sorted order) separated by spaces.
+     Example: (generate-output [\"tea\", \"ok\"]) -> 
+              \"A At E T Ta a at ate e eat eta t tea\nK O OK k o\"
+    "
+    [words]
+    ;; Code goes here
+    ;; load dictionary - 
+    (def dictionary (load-dictionary))
+    ;; get anagrams - 
+    (println (get dictionary 0))
+    (def all-anagrams (find-sub-anagrams words dictionary))
+    ;; return anagrams -
+    (println (clojure.string/join "\n" (clojure.string/join " " all-anagrams)))
+    )
 
 
 
