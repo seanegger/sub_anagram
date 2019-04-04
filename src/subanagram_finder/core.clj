@@ -27,7 +27,7 @@
   [word, word-list]
   ;; Code goes here
   ;; get length of word - 
-  word-length = (count word)
+  (def word-length (count word))
   ;; letter-counts
   ;; is-sub-anagram
   ;; return is-sub-anagram
@@ -44,9 +44,9 @@
   [words]
   ;; Code goes here
   ;; load dictionary - 
-  dictionary = (load-dictionary)
+  (def dictionary (load-dictionary))
   ;; get anagrams - 
-  all-anagrams = (find-sub-anagrams words dictionary)
+  (def all-anagrams (find-sub-anagrams words dictionary)
   ;; return anagrams -
   (join "\n" (join " " all-anagrams))
   )
