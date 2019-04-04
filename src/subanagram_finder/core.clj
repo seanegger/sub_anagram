@@ -16,6 +16,7 @@
    ;; Code goes here
    (with-open [r (reader file-name)]
      (count (line-seq r)))
+   ;; count is lazy - doall is non-lazy - (doall (line-seq r)))
   ))
   
 
