@@ -54,7 +54,6 @@
   [words]
   ;; Code goes here
   
-  (find-sub-anagrams "app" words)
   )
 
 
