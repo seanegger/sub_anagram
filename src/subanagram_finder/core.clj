@@ -25,6 +25,10 @@
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
   ;; Code goes here
+  ;; get length of word - word-length = count word
+  ;; letter-counts
+  ;; is-sub-anagram
+  ;; return is-sub-anagram
   )  
 
 (defn generate-output 
@@ -37,6 +41,9 @@
   "
   [words]
   ;; Code goes here
+  ;; load dictionary - dictionary = (load-dictionary)
+  ;; get anagrams - all-anagrams = (find-sub-anagrams words dictionary)
+  ;; return anagrams - return all-anagrams
   )
   
 
