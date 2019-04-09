@@ -14,7 +14,6 @@
   ([] (load-dictionary "resources/words"))
   ([file-name]
    ;; Code goes here
-<<<<<<< HEAD
    ;; get text file
    (with-open [reader (clojure.java.io/reader file-name)]
    ;; add each line to the vector
@@ -29,9 +28,11 @@
 
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
+
+
   (def len (count word))
-  (def freq (frequencies (clojure.string/lower-case word)))
-  (println freq)
+  (def letter_counts (frequencies (clojure.string/lower-case word)))
+  (println letter_counts)
 
   (defn is-sub-anagram [other]
    (cond
@@ -40,15 +41,15 @@
     (>= len (count other))
         (
         (def other_ct (frequencies (clojure.string/lower-case other)))
-        other_ct
+        (defn lambda [letter]
+          
+          (>= (get letter_counts letter) (get other_ct letter))
+        )
+        (map (keys other_ct) lambda)
         )
    )
   )
-
-  (println (is-sub-anagram "animal", ))
-  "bear"
-  ;; Code goes here
-  )  
+)  
 
 
 
@@ -65,7 +66,9 @@
     (def dictionary (load-dictionary))
     ;; get anagrams - 
     (println (get dictionary 0))
+    (println "moving to me")
     (def all-anagrams (find-sub-anagrams words dictionary))
+    (println "end me")
     ;; return anagrams -
     (println (clojure.string/join "\n" (clojure.string/join " " all-anagrams)))
     )
