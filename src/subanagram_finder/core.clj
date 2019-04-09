@@ -1,7 +1,6 @@
 (ns subanagram-finder.core
   "Clojure Sub-anagram Finder. Usage:
     lein run -- word [word ...]
-
    Champlain College
    CSI-380 Spring 2019"
   (:gen-class))
@@ -25,7 +24,6 @@
 
 (defn find-sub-anagrams 
   "Find all the words in word-list that are sub-anagrams of word.
-
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
 
@@ -42,13 +40,13 @@
         (
         (def other_ct (frequencies (clojure.string/lower-case other)))
         (defn lambda [letter]
-          
           (>= (get letter_counts letter) (get other_ct letter))
         )
-        (map (keys other_ct) lambda)
+        (map #(keys other_ct) lambda)
         )
    )
   )
+  (filter is-sub-anagram word-list)
 )  
 
 
@@ -70,7 +68,8 @@
     (def all-anagrams (find-sub-anagrams words dictionary))
     (println "end me")
     ;; return anagrams -
-    (println (clojure.string/join "\n" (clojure.string/join " " all-anagrams)))
+    ;;(println (clojure.string/join "\n" (clojure.string/join " " all-anagrams)))
+    (println (clojure.string/join " " all-anagrams))
     )
 
 
