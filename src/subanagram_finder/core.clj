@@ -53,11 +53,10 @@
     ;; load dictionary - 
     (let [dictionary (load-dictionary)
     ;; get anagrams -  
-    wordAr (clojure.string/split words #" ")
-    withAnon (map #(find-sub-anagrams % dictionary) wordAr)
+    withAnon (map #(find-sub-anagrams % dictionary) words)
     final (clojure.string/join #"\n" withAnon)]
 
-    final)
+    (doall final))
     )
 
 
