@@ -20,34 +20,26 @@
    ;; change the vector to a list
    (into () wordsVector)
   ))
-  
 
+(defn isSub [big small]
+ 
+  (def sFreq (frequencies small))
+  (def bFreq (frequencies (clojure.string/lower-case big)))
+ 
+  (def filt (map #(and (contains? bFreq (first %)) (<= (second %) (get bFreq (first %)))) sFreq ))
+  (every? true? filt)
+  )
+  
 (defn find-sub-anagrams 
   "Find all the words in word-list that are sub-anagrams of word.
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
-
-
   (def len (count word))
   (def letter_counts (frequencies (clojure.string/lower-case word)))
-  (println letter_counts)
 
-  (defn is-sub-anagram [other]
-   (cond
-    (< len (count other))
-        false
-    (>= len (count other))
-        (
-        (def other_ct (frequencies (clojure.string/lower-case other)))
-        (defn lambda [letter]
-          (>= (get letter_counts letter) (get other_ct letter))
-        )
-        (map #(keys other_ct) lambda)
-        )
-   )
-  )
-  (filter is-sub-anagram word-list)
-)  
+  (def please (filter #(isSub word %) word-list))
+  please
+)
 
 
 
@@ -63,13 +55,10 @@
     ;; load dictionary - 
     (def dictionary (load-dictionary))
     ;; get anagrams - 
-    (println (get dictionary 0))
-    (println "moving to me")
     (def all-anagrams (find-sub-anagrams words dictionary))
-    (println "end me")
     ;; return anagrams -
     ;;(println (clojure.string/join "\n" (clojure.string/join " " all-anagrams)))
-    (println (clojure.string/join " " all-anagrams))
+    (clojure.string/join " " all-anagrams)
     )
 
 
