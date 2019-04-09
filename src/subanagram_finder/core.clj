@@ -22,10 +22,11 @@
   ))
 
 (defn isSub [big small]
- 
+  ;; get frequencies of the two words
   (def sFreq (frequencies (clojure.string/lower-case small)))
   (def bFreq (frequencies (clojure.string/lower-case big)))
  
+  ;;filter to true and false in place of frequencies if that letter is in big and the ammount in big is more than or equal to in small
   (def filt (map #(and (contains? bFreq (first %)) (<= (second %) (get bFreq (first %)))) sFreq ))
   (every? true? filt)
   )
@@ -34,6 +35,7 @@
   "Find all the words in word-list that are sub-anagrams of word.
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
+  ;;call above function as a filter on whole list of words
   (def please (filter #(isSub word %) word-list))
   please
 )
@@ -53,6 +55,7 @@
     (let [dictionary (load-dictionary)
     ;; get anagrams -  
     withAnan (map #(find-sub-anagrams % dictionary) words)]
+    ;; join them to look good
     (str/join "\n" (map #(str/join " " %) withAnan))
     )
     )
