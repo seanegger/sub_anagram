@@ -17,8 +17,8 @@
    (with-open [reader (clojure.java.io/reader file-name)]
    ;; add each line to the vector
    (def wordsVector (reduce conj [] (line-seq reader))))
-   ;; change the vector to a list
-   (into () wordsVector)
+   ;; change the vector to a list and put in proper order (reverse it)
+   (reverse (into () wordsVector))
   ))
 
 (defn isSub [big small]
