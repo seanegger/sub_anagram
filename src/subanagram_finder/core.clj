@@ -34,7 +34,6 @@
   "Find all the words in word-list that are sub-anagrams of word.
   A sub-anagram means it is an anagram of a substring of word."
   [word, word-list]
-  (println word)
   (def please (filter #(isSub word %) word-list))
   please
 )
@@ -53,10 +52,9 @@
     ;; load dictionary - 
     (let [dictionary (load-dictionary)
     ;; get anagrams -  
-    withAnon (map #(find-sub-anagrams % dictionary) words)
-    final (clojure.string/join #"\n" withAnon)]
-
-    (doall final))
+    withAnan (map #(find-sub-anagrams % dictionary) words)]
+    (str/join "\n" (map #(str/join " " %) withAnan))
+    )
     )
 
 
